@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 services:
   node:
     restart: always
@@ -6,12 +6,12 @@ services:
     ports:
       - 80:3000
     volumes:
-      - ./:/code
+      - ./:/code #Mounting the contents within ./ path relative to compose file into /code folder within the container. Not managed by Docker
   mongo:
     image: mongo
     ports:
       - 27017:27017
     volumes:
-      - mongodb:/data/db
+      - mongodb:/data/db #Named volumes to persist data
 volumes:
  mongodb:
